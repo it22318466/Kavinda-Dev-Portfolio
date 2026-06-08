@@ -74,9 +74,11 @@ const Projects = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn delay={0}>
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-              <Briefcase className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">My Work</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6 transition-all duration-300 ease-out hover:border-primary/50 hover:bg-white/10 hover:text-white group">
+              <Briefcase className="w-4 h-4 text-primary group-hover:text-white" />
+              <span className="text-sm text-primary font-medium group-hover:text-white">
+                My Work
+              </span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">
               Featured Projects
@@ -94,7 +96,7 @@ const Projects = () => {
               <button
                 key={category}
                 onClick={() => handleCategoryChange(category)}
-                className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer ${
                   activeCategory === category
                     ? "text-white"
                     : "text-white/60 hover:text-white"
@@ -148,7 +150,7 @@ const Projects = () => {
                 <button
                   onClick={prevSlide}
                   disabled={currentIndex === 0}
-                  className="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
+                  className="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 cursor-pointer"
                   aria-label="Previous projects"
                 >
                   <ChevronLeft className="w-6 h-6 text-white" />
@@ -157,7 +159,7 @@ const Projects = () => {
                 <button
                   onClick={nextSlide}
                   disabled={currentIndex >= filteredProjects.length - 3}
-                  className="flex absolute right-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
+                  className="flex absolute right-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 cursor-pointer"
                   aria-label="Next projects"
                 >
                   <ChevronRight className="w-6 h-6 text-white" />
@@ -174,7 +176,7 @@ const Projects = () => {
                   <button
                     key={index}
                     onClick={() => scrollToIndex(index)}
-                    className={`transition-all duration-300 rounded-full ${
+                    className={`transition-all duration-300 rounded-full cursor-pointer ${
                       index === currentIndex
                         ? "bg-primary w-6 h-2"
                         : "bg-white/30 w-2 h-2 hover:bg-white/50"

@@ -23,7 +23,7 @@ const Hero = () => {
           {/* Left Column - Content */}
           <div className="text-left">
             <FadeIn delay={0}>
-              <div className="inline-flex items-center gap-2.5 px-[18px] py-[11px] mb-8 bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full">
+              <div className="inline-flex items-center gap-2.5 px-[18px] py-[11px] mb-8 bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full transition duration-300 ease-out hover:border-primary/40 hover:bg-white/10 hover:text-white">
                 <Star className="w-4 h-4 text-white fill-white" />
                 <span className="text-xs md:text-sm text-white tracking-[1.2px]">
                   {PERSONAL_INFO.title} | Based in {PERSONAL_INFO.location}
@@ -50,7 +50,7 @@ const Hero = () => {
                 onClick={() => scrollToSection("contact")}
                 className="inline-flex items-center gap-0 mb-12 group"
               >
-                <div className="relative z-10 bg-white text-[#212121] rounded-[17px] px-[26px] py-[13px] text-base font-medium border border-white">
+                <div className="relative z-10 bg-white text-[#212121] rounded-[17px] px-[26px] py-[13px] text-base font-medium border border-white hover:bg-white/80 transition-all cursor-pointer duration-300">
                   Get in Touch
                 </div>
               </button>
@@ -95,24 +95,24 @@ const Hero = () => {
                 {/* Technology Logos */}
                 <div className="absolute bottom-6 left-6 z-20">
                   <FadeIn delay={500}>
-                    <div className="flex items-center gap-4 bg-emerald-500/10 backdrop-blur-sm broder border-white/10 rounded-full px-6 py-3">
-                      <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                    <div className="flex items-center gap-4 bg-emerald-500/10 backdrop-blur-sm broder border-white/10 rounded-full px-6 py-3 hover:bg-primary/13 hover:border-primary/13 transition-all duration-300">
+                      <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
                         <SiReact className="w-full h-full text-primary" />
                       </div>
 
-                      <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                      <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
                         <SiNextdotjs className="w-full h-full text-primary" />
                       </div>
 
-                      <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                      <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
                         <SiNodedotjs className="w-full h-full text-primary" />
                       </div>
 
-                      <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                      <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
                         <SiTailwindcss className="w-full h-full text-primary" />
                       </div>
 
-                      <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                      <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
                         <SiMongodb className="w-full h-full text-primary" />
                       </div>
                     </div>
@@ -128,7 +128,7 @@ const Hero = () => {
 
       <button
         onClick={() => scrollToSection("about")}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
       >
         <ChevronDown className="w-8 h-8 text-primary" />
       </button>

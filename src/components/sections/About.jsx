@@ -34,12 +34,12 @@ const About = () => {
           <div className="flex flex-col gap-10 items-start">
             <div className="flex flex-col gap-8 w-full">
               <FadeIn delay={60}>
-                <div className="inline-flex items-center gap-2.5 px-5 py-2.5 border border-primary/30 bg-primary/10 rounded-full w-fit">
-                  <Code2 className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-primary font-medium">
+                <div className="inline-flex items-center gap-2.5 px-5 py-2.5 border border-primary/30 bg-primary/10 rounded-full w-fit transition-all duration-300 ease-out hover:border-primary/50 hover:bg-white/10 hover:text-white group">
+                  <Code2 className="w-4 h-4 text-primary group-hover:text-white" />
+                  <span className="text-sm text-primary font-medium group-hover:text-white">
                     Full-Stack Developer
                   </span>
-                  <Sparkles className="w-4 h-4 text-primary" />
+                  <Sparkles className="w-4 h-4 text-primary group-hover:text-white" />
                 </div>
               </FadeIn>
 
@@ -82,7 +82,7 @@ const About = () => {
             <FadeIn delay={400}>
               <button
                 onClick={() => window.open(PERSONAL_INFO.resume, "_blank")}
-                className="inline-flex items-center gap-3 bg-white hover:bg-white/90 text-black rounded-full px-8 py-4 text-base font-medium transition-all duration-300 w-fit group"
+                className="inline-flex items-center gap-3 bg-white hover:bg-white/80 text-black rounded-full px-8 py-4 text-base font-medium transition-all duration-300 w-fit cursor-pointer group"
               >
                 <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform duration-300" />
                 Download Resume

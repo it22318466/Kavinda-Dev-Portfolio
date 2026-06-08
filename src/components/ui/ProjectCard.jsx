@@ -50,7 +50,7 @@ const ProjectCard = ({ project }) => {
         </div>
 
         <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 text-xs font-medium text-white bg-black/40 backdrop-blur-sm border border-white/20 rounded-full">
+          <span className="px-3 py-1 text-xs font-medium text-white bg-black/40 backdrop-blur-sm border border-white/20 rounded-full hover:bg-primary/30 hover:border-primary/50 transition-all duration-300 hover:scale-110">
             {project.category}
           </span>
         </div>
