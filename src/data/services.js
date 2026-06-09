@@ -4,41 +4,41 @@ export const services = [
     icon: "Layout",
     title: "Frontend Development",
     description:
-      "Building responsive and performant web applications using React, Next.js and modren Java",
+      "Building responsive and performant web applications using React, Next.js and modern JavaScript frameworks with pixel perfect designs.",
   },
   {
     id: 2,
-    icon: "Layout",
-    title: "Frontend Development",
+    icon: "Smartphone",
+    title: "Responsive Design",
     description:
-      "Building responsive and performant web applications using React, Next.js and modren Java",
+      "Creating mobile first, responsive interfaces that work seamlessly across all devices and screen sizes with exceptional user experience.",
   },
   {
     id: 3,
-    icon: "Layout",
-    title: "Frontend Development",
+    icon: "Palette",
+    title: "UI/UX Design",
     description:
-      "Building responsive and performant web applications using React, Next.js and modren Java",
+      "Designing intuitive and visually appealing user interfaces with a focus on usability, accessibility and modern.",
   },
   {
     id: 4,
-    icon: "Layout",
-    title: "Frontend Development",
+    icon: "Code2",
+    title: "Custom Components",
     description:
-      "Building responsive and performant web applications using React, Next.js and modren Java",
+      "Developing reusable, scalable component libraries and design systems that maintain consistency.",
   },
   {
     id: 5,
-    icon: "Layout",
-    title: "Frontend Development",
+    icon: "Zap",
+    title: "Performance Optimization",
     description:
-      "Building responsive and performant web applications using React, Next.js and modren Java",
+      "Optimizing web applications for speed and efficiency through code splitting, lazy loading and best.",
   },
   {
     id: 6,
-    icon: "Layout",
-    title: "Frontend Development",
+    icon: "GitBranch",
+    title: "Code Review & Consulting",
     description:
-      "Building responsive and performant web applications using React, Next.js and modren Java",
+      "Providing expert code reviews, architecture consulting and technical guidance to improve your.",
   },
 ];

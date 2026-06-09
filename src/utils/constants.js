@@ -6,9 +6,9 @@ export const PERSONAL_INFO = {
   tagline: "Des- hghjfgdshfdhghdgfhdsgfhdsgfjsdgfhdsfgjhfdfhjkhfsjhsjdfdgfjgj",
   resume: "/resume.pdf",
   bio: [
-    "iufdsuhfudhfudshfuidsfduihfdsdsfdfdfdfdsfdfdffdfdfdfdfdfdfdfdfdfdfdfdfdiufdsuhfudhfudshfuidsfduihfdsdsfdfdfdfdsfdfdffdfdfdfdfdfdfdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhfdfdfdfdfdfd.",
-    "iufdsuhfudhfudshfuidsfduihfdsdsfdfdfdfdsfdfdffdfdfdfdfdfdfdfdfdfdfdfdfdiufdsuhfudhfudshfuidsfduihfdsdsfdfdfdfdsfdfdffdfdfdfdfdfdfdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhfdfdfdfdfdfd.",
-    "iufdsuhfudhfudshfuidsfduihfdsdsfdfdfdfdsfdfdffdfdfdfdfdfdfdfdfdfdfdfdfdiufdsuhfudhfudshfuidsfduihfdsdsfdfdfdfdsfdfdffdfdfdfdfdfdfdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhfdfdfdfdfdfd.",
+    "I'm a passionate React developer with over 3 years of experience building scalable. performant web applications I specialize in creating intuitive user interfaces that combine beautiful design with exceptional functionality.",
+    "My expertise spans the entire frontend ecosystem, from React and Next.js to TypeScript and modern CSS frameworks. I'm committed to writing clean, maintainable code and staying current with the latest web technologies.",
+    "When I'm not coding, you'll find me contributing to open-source projects, writing technical articles or exploring new design trends.",
   ],
 };
 

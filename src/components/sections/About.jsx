@@ -64,7 +64,7 @@ const About = () => {
             </div>
 
             <FadeIn delay={300}>
-              <div className="grid grid-cols-3 gap-30">
+              <div className="grid grid-cols-3 gap-27">
                 {ABOUT_STATS.map((stat, index) => (
                   <div key={index} className="relative">
                     <div className="absolute -left-4 top-0 w-1 h-full bg-linear-to-b from-primary via-primary/50 to-primary/20 rounded-full"></div>
