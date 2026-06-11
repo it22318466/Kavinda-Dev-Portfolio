@@ -1,14 +1,15 @@
 export const PERSONAL_INFO = {
   name: "Alex Johnson",
   title: "React Developer & UI/UX Enthusiast",
-  email: "lochanabandara36@gmail.com",
+  email: "alex@timetoprogram.com",
   location: "San Francisco, CA",
-  tagline: "Des- hghjfgdshfdhghdgfhdsgfhdsgfjsdgfhdsfgjhfdfhjkhfsjhsjdfdgfjgj",
+  tagline:
+    "Crafting seamless digital experiences with modern web technologies !",
   resume: "/resume.pdf",
   bio: [
     "I'm a passionate React developer with over 3 years of experience building scalable. performant web applications I specialize in creating intuitive user interfaces that combine beautiful design with exceptional functionality.",
     "My expertise spans the entire frontend ecosystem, from React and Next.js to TypeScript and modern CSS frameworks. I'm committed to writing clean, maintainable code and staying current with the latest web technologies.",
-    "When I'm not coding, you'll find me contributing to open-source projects, writing technical articles or exploring new design trends.",
+    "When I'm not coding, you'll find me contributing to open source projects, writing technical articles or exploring new design trends.",
   ],
 };
 

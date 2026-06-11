@@ -34,7 +34,7 @@ const About = () => {
           <div className="flex flex-col gap-10 items-start">
             <div className="flex flex-col gap-8 w-full">
               <FadeIn delay={60}>
-                <div className="inline-flex items-center gap-2.5 px-5 py-2.5 border border-primary/30 bg-primary/10 rounded-full w-fit transition-all duration-300 ease-out hover:border-primary/50 hover:bg-white/10 hover:text-white group">
+                <div className="inline-flex items-center gap-2.5 px-5 py-2.5 border border-primary/30 bg-primary/10 rounded-full w-fit transition-all duration-300 ease-out hover:border-primary/50 hover:bg-white/10 hover:text-white group hover:scale-105">
                   <Code2 className="w-4 h-4 text-primary group-hover:text-white" />
                   <span className="text-sm text-primary font-medium group-hover:text-white">
                     Full-Stack Developer
@@ -123,7 +123,7 @@ const About = () => {
                     Clean Code
                   </h3>
                   <p className="text-sm text-white/70 leading-relaxed">
-                    Writinng maintainable, well-documented code that scales.
+                    Writinng maintainable, well documented code that scales.
                   </p>
                 </div>
               </div>
@@ -186,7 +186,7 @@ const About = () => {
                 Tech Stack & Expertise
               </h3>
               <p className="text-sm text-white/60">
-                Technologies I work with to build amazing products
+                Technologies I work with to build amazing products !
               </p>
             </div>
 

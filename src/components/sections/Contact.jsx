@@ -59,7 +59,7 @@ const Contact = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn delay={0}>
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6 hover:bg-primary/30 hover:border-primary/50 transition-all duration-300 hover:scale-110">
               <MessageSquare className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium tracking-winder uppercase">
                 Get In Touch
@@ -136,7 +136,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-linear-to-r from-primary/10 to-primary text-white font-medium rounded-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 group"
+                  className="w-full px-6 py-3 bg-linear-to-r from-primary/10 to-primary text-white font-medium rounded-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <span>Send Message</span>
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -159,40 +159,47 @@ const Contact = () => {
 
           {/* Contact Info */}
           <FadeIn delay={200}>
-            <div className="">
+            <div className="space-y-8">
               <div>
-                <h3 className="">Let's Connect</h3>
-                <p className="">
+                <h3 className="text-2xl font-semibold text-white mb-4">
+                  Let's Connect
+                </h3>
+                <p className="text-white/60 leading-relaxed">
                   I'm always open to discussing new projects, creative ideas or
                   opportunities to be part of your visions. Feel fee to reach
-                  out!
+                  out !
                 </p>
               </div>
 
-              <div className="">
-                <div className="">
-                  <div className="">
-                    <div className="">
-                      <Mail className="" />
+              <div className="space-y-4">
+                <div className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-linear-to-br from-primary/20 to-primary/20 border border-primary/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Mail className="w-4.5 h-4.5 text-primary" />
                     </div>
-                    <div className="">
-                      <p className="">Email</p>
-                      <a href={`mailto:${PERSONAL_INFO.email}`} className="">
+                    <div className="flex-1">
+                      <p className="text-sm text-white/60 mb-1">Email</p>
+                      <a
+                        href={`mailto:${PERSONAL_INFO.email}`}
+                        className="text-white hover:text-[#A8FF8D] transition-colors font-medium"
+                      >
                         {PERSONAL_INFO.email}
                       </a>
                     </div>
                   </div>
-                  <div className="" />
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group:hover:to-primary/5 transition-all duration-300 rounded-2xl pointer-events-none" />
                 </div>
 
-                <div>
-                  <div>
-                    <div>
-                      <MapPin className="" />
+                <div className="group relative bg-white/5 mb-7 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-linear-to-br from-primary/20 to-primary/20 border border-primary/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <MapPin className="w-4.5 h-4.5 text-primary" />
                     </div>
-                    <div className="">
-                      <p className="">Location</p>
-                      <p className="">{PERSONAL_INFO.location}</p>
+                    <div className="flex-1">
+                      <p className="text-sm text-white/60 mb-1">Location</p>
+                      <p className="text-white font-medium">
+                        {PERSONAL_INFO.location}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -200,8 +207,8 @@ const Contact = () => {
             </div>
 
             <div>
-              <p className="">Connect with me</p>
-              <div className="">
+              <p className="text-sm text-white/60 mb-4">Connect with me</p>
+              <div className="flex gap-4">
                 {Object.entries(SOCIAL_LINKS)
                   .slice(0, 3)
                   .map(([platform, url]) => {
@@ -212,9 +219,9 @@ const Contact = () => {
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className=""
+                        className="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-primary/50 hover:scale-110 transition-all duration-300 group"
                       >
-                        <Icon className="" />
+                        <Icon className="w-3.5 h-3.5 text-white/60 group-hover:text-primary transition-colors" />
                       </a>
                     ) : null;
                   })}

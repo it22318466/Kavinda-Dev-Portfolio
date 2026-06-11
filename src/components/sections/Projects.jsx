@@ -74,17 +74,17 @@ const Projects = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn delay={0}>
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6 transition-all duration-300 ease-out hover:border-primary/50 hover:bg-white/10 hover:text-white group">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6 transition-all duration-300 ease-out hover:border-primary/50 hover:bg-primary/20 hover:text-white group hover:scale-105">
               <Briefcase className="w-4 h-4 text-primary group-hover:text-white" />
               <span className="text-sm text-primary font-medium group-hover:text-white">
-                My Work
+                MY PROJECTS - Software Development
               </span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">
               Featured Projects
             </h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Showcasing my best work and achievements
+              Showcasing my best work and achievements !
             </p>
           </div>
         </FadeIn>

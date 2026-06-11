@@ -3,7 +3,7 @@ export const projects = [
     id: 1,
     title: "E-Commerce Platform",
     description:
-      "Full-stack online shopping application with real-time inventory management, secure payment",
+      "Full-stack online shopping application with real-time inventory management, secure payment processing and user authentication system.",
     image: "/images/projects/project1.png",
     category: "Full Stack",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
@@ -15,7 +15,7 @@ export const projects = [
     id: 2,
     title: "Task Management Dashboard",
     description:
-      "Collaborative project management tool with drag-and-drop kanban boards, real-time updates",
+      "Collaborative project management tool with drag-and-drop kanban boards, real-time updates and team collaboration features for efficient task management.",
     image: "/images/projects/project2.png",
     category: "Web Apps",
     technologies: ["React", "TypeScript", "Firebase", "Tailwind"],
@@ -27,7 +27,7 @@ export const projects = [
     id: 3,
     title: "Component Library",
     description:
-      "Comprehensive React component library with 50+ customizable components, built with accessibility in mind",
+      "Comprehensive React component library with 50+ customizable components, built with accessibility and performance in mind.",
     image: "/images/projects/project3.png",
     category: "UI Components",
     technologies: ["React", "TypeScript", "Storybook", "CSS Modules"],
@@ -39,7 +39,7 @@ export const projects = [
     id: 4,
     title: "Social Media Analytics",
     description:
-      "Real-time social media analytics dashboard with data visualization, sentiment analysis and insights",
+      "Real-time social media analytics dashboard with data visualization, sentiment analysis and automated reports generation.",
     image: "/images/projects/project4.png",
     category: "Web Apps",
     technologies: ["Nect.js", "Chart.js", "PostgreSQL", "Redis"],
@@ -51,7 +51,7 @@ export const projects = [
     id: 5,
     title: "Weather Forecast App",
     description:
-      "Beautiful weather application with hourly forecasts, interactive maps, location based and real-time updates",
+      "Beautiful weather application with hourly forecasts, interactive maps, location based alerts and real-time updates for accurate weather information.",
     image: "/images/projects/project5.png",
     category: "Web Apps",
     technologies: ["React", "OpenWeather API", "Mapbox", "Tailwind"],
@@ -63,7 +63,7 @@ export const projects = [
     id: 6,
     title: "Portfolio Template",
     description:
-      "Modern customizable portfolio template for developers and designers with dark mode and responsive design",
+      "Modern customizable portfolio template for developers and designers with dark mode, smooth and responsive design and easy customization.",
     image: "/images/projects/project6.jpg",
     category: "UI Components",
     technologies: ["React", "Framer Motion", "Tailwind", "Vite"],
