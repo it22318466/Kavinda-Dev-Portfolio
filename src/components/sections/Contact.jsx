@@ -3,6 +3,10 @@ import { Mail, MapPin, Send, MessageSquare } from "lucide-react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "../../utils/constants";
 import FadeIn from "../animations/FadeIn";
+import emailjs from "@emailjs/browser";
+
+// Initialize EmailJS with your public key
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +20,7 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -33,13 +37,36 @@ const Contact = () => {
       return;
     }
 
-    setStatus({
-      type: "success",
-      message: "Message sent successfully! I\'ll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setStatus({ type: "loading", message: "Sending message..." });
 
-    setTimeout(() => setStatus({ type: "", message: "" }), 5000);
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: PERSONAL_INFO.email,
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+      );
+
+      setStatus({
+        type: "success",
+        message: "Message sent successfully! I\'ll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+
+      setTimeout(() => setStatus({ type: "", message: "" }), 5000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus({
+        type: "error",
+        message: "Failed to send message. Please try again or email directly.",
+      });
+    }
   };
 
   const socialIcons = {
@@ -147,7 +174,9 @@ const Contact = () => {
                     className={`p-4 rounded-xl ${
                       status.type === "success"
                         ? "bg-green-500/10 border border-green-500/20 text-green-400"
-                        : "bg-red-500/10 border border-red-500/20 text-red-400"
+                        : status.type === "loading"
+                          ? "bg-blue-500/10 border border-blue-500/20 text-blue-400"
+                          : "bg-red-500/10 border border-red-500/20 text-red-400"
                     }`}
                   >
                     {status.message}

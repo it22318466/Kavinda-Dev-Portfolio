@@ -1,34 +1,46 @@
 export const PERSONAL_INFO = {
-  name: "Alex Johnson",
-  title: "React Developer & UI/UX Enthusiast",
-  email: "alex@timetoprogram.com",
-  location: "San Francisco, CA",
+  name: "Lochana Kavinda",
+  title: "Software Developer & UI/UX Enthusiast",
+  email: "lochanabandara36@gmail.com",
+  location: "Gampaha, Sri Lanka",
   tagline:
     "Crafting seamless digital experiences with modern web technologies !",
   resume: "/resume.pdf",
   bio: [
-    "I'm a passionate React developer with over 3 years of experience building scalable. performant web applications I specialize in creating intuitive user interfaces that combine beautiful design with exceptional functionality.",
-    "My expertise spans the entire frontend ecosystem, from React and Next.js to TypeScript and modern CSS frameworks. I'm committed to writing clean, maintainable code and staying current with the latest web technologies.",
+    "I'm a passionate Full Stack Developer with over 5 years of experience building scalable. Performant web & mobile applications. I specialize in creating intuitive user interfaces that combine beautiful design with exceptional functionality.",
+    "My expertise spans the entire frontend ecosystem, from React, Vue.js, Java, Python, Node.js, Next.js, Express.js, Spring Boot, MERN Stack, Laravel and Flutter to NestJS, JS, TypeScript and modern CSS frameworks. I'm committed to writing clean, maintainable code and staying current with the latest web technologies.",
     "When I'm not coding, you'll find me contributing to open source projects, writing technical articles or exploring new design trends.",
   ],
 };
 
 export const SOCIAL_LINKS = {
-  github: "",
-  linkedin: "",
+  github: "https://github.com/it22318466",
+  linkedin: "https://www.linkedin.com/in/lochana-kavinda-a08260288",
+  messenger: "https://m.me/lochana.bandara.940",
+  whatsapp: "https://wa.me/qr/G54T77M3Z3EFH1",
+  instagram:
+    "https://www.instagram.com/lochaa_kavi?utm_source=qr&igsh=ejlrcGpvdG5vMnk=",
+  facebook: "https://www.facebook.com/share/1VjfTB2KeV/",
+  tiktok: "https://www.tiktok.com/@lochaa761?_r=1&_t=ZS-97kee9WbD0f",
+  pinterest: "https://pin.it/1Bvx1NL5m",
+  threads: "https://www.threads.com/@lochaa_kavi",
+  indeed: "https://profile.indeed.com/?hl=en_US&co=US&from=gnav-homepage",
+  fiverr: "https://www.fiverr.com/lochana_k/buying?source=avatar_menu_profile",
   twitter: "",
   dribbble: "",
+  discord: "",
+  reddit: "",
 };
 
 export const STATS = [
-  { label: "Years Experience", value: "3+" },
-  { label: "Projects Completed", value: "50+" },
-  { label: "Technologies", value: "15+" },
+  { label: "Years Experience", value: "5+" },
+  { label: "Projects Completed", value: "150+" },
+  { label: "Technologies", value: "30+" },
   { label: "Client Satisfaction", value: "98%" },
 ];
 
 export const ABOUT_STATS = [
-  { label: "Happy Clients", value: "45+" },
+  { label: "Happy Clients", value: "100+" },
   { label: "Code Commits", value: "2.5K+" },
   { label: "GitHub Stars", value: "500+" },
 ];

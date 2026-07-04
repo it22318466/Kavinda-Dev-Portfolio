@@ -21,7 +21,7 @@ export const projects = [
     technologies: ["React", "TypeScript", "Firebase", "Tailwind"],
     metrics: "500+ active users",
     demoUrl: "https://timetoprogram.com/projects",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/it22318466/SevaLink_App.git",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const projects = [
     technologies: ["React", "OpenWeather API", "Mapbox", "Tailwind"],
     metrics: "95% accuracy rate",
     demoUrl: "https://timetoprogram.com/projects",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/it22318466/Mobile_App.git",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ export const projects = [
     technologies: ["React", "Framer Motion", "Tailwind", "Vite"],
     metrics: "2K+ GitHub stars",
     demoUrl: "https://timetoprogram.com/projects",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/it22318466/react-dev-portfolio.git",
   },
 ];
 

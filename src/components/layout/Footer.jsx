@@ -116,7 +116,7 @@ const Footer = () => {
               <p className="flex items-center gap-3 text-white/50 text-sm hover:text-primary transition-all duration-300">
                 Built with{" "}
                 <Heart className="w-4 h-4 text-primary fill-primary animate-pulse hover:scale-110" />{" "}
-                using React & Tailwind CSS
+                using Cutting Edge Technologies.
               </p>
             </div>
           </div>

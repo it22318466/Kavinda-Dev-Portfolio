@@ -4,7 +4,7 @@ export const services = [
     icon: "Layout",
     title: "Frontend Development",
     description:
-      "Building responsive and performant web applications using React, Next.js and modern JavaScript frameworks with pixel perfect designs.",
+      "Building responsive and performant web applications using React, Next.js, CSS and modern JavaScript frameworks with pixel perfect designs.",
   },
   {
     id: 2,
