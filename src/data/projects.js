@@ -71,6 +71,63 @@ export const projects = [
     demoUrl: "https://timetoprogram.com/projects",
     githubUrl: "https://github.com/it22318466/react-dev-portfolio.git",
   },
+  {
+    id: 7,
+    title: "Real Estate Platform",
+    description:
+      "Full-stack real estate platform with property listings, user authentication, payment processing and order tracking.",
+    image: "/images/projects/Real_Estate_Platform.png",
+    category: "Full Stack",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe", "Express"],
+    metrics: "100+ products",
+    demoUrl: "https://timetoprogram.com/projects",
+    githubUrl: "https://github.com",
+  },
+  {
+    id: 8,
+    title: "Smart Learning Platform",
+    description:
+      "Full-stack learning management system with course management, user authentication, payment processing and order tracking.",
+    image: "/images/projects/Smart_Learning_Platform.jpg",
+    category: "Web Apps",
+    technologies: [
+      "Swift",
+      "CMake",
+      "Firebase",
+      "Dart",
+      "C++",
+      "Flutter",
+      "Ruby",
+    ],
+    metrics: "100+ products",
+    demoUrl: "https://timetoprogram.com/projects",
+    githubUrl:
+      "https://github.com/it22318466/Smart-Learning-Assistant-App-.git",
+  },
+  {
+    id: 9,
+    title: "Wildlife Photography Platform",
+    description:
+      "Full-stack wildlife photography platform with photo galleries, user authentication, and portfolio management.",
+    image: "/images/projects/Wildlife_Photography_Platform.png",
+    category: "Full Stack",
+    technologies: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Cloudinary",
+      "Express",
+      "JWT",
+      "JS",
+      "CSS",
+      "Next.js",
+      "Vite",
+    ],
+    metrics: "100+ products",
+    demoUrl: "https://timetoprogram.com/projects",
+    githubUrl:
+      "https://github.com/it22318466/Wildlife-Photography-Platform-KU-IP-Final.git",
+  },
 ];
 
 export const categories = ["All", "Web Apps", "UI Components", "Full Stack"];
