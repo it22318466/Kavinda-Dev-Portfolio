@@ -19,6 +19,8 @@ import {
   FaTelegram,
   FaYoutube,
   FaPhone,
+  FaBitbucket,
+  FaGitlab,
 } from "react-icons/fa";
 import { PERSONAL_INFO, SOCIAL_LINKS, NAV_LINKS } from "../../utils/constants";
 import { scrollToSection } from "../../hooks/useScrollSpy";
@@ -27,6 +29,8 @@ import FadeIn from "../animations/FadeIn";
 const Footer = () => {
   const socialIcons = {
     github: FaGithub,
+    bitbucket: FaBitbucket,
+    gitlab: FaGitlab,
     linkedin: FaLinkedin,
     twitter: FaTwitter,
     messenger: FaFacebookMessenger,

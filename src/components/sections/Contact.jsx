@@ -19,6 +19,8 @@ import {
   FaYoutube,
   FaViber,
   FaTelegram,
+  FaBitbucket,
+  FaGitlab,
 } from "react-icons/fa";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "../../utils/constants";
 import FadeIn from "../animations/FadeIn";
@@ -90,6 +92,8 @@ const Contact = () => {
 
   const socialIcons = {
     github: FaGithub,
+    bitbucket: FaBitbucket,
+    gitlab: FaGitlab,
     linkedin: FaLinkedin,
     twitter: FaTwitter,
     messenger: FaFacebookMessenger,

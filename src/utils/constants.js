@@ -15,6 +15,8 @@ export const PERSONAL_INFO = {
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/it22318466",
+  bitbucket: "",
+  gitlab: "",
   linkedin: "https://www.linkedin.com/in/lochana-kavinda-a08260288",
   indeed: "https://profile.indeed.com/?hl=en_US&co=US&from=gnav-homepage",
   fiverr: "https://www.fiverr.com/lochana_k/buying?source=avatar_menu_profile",
