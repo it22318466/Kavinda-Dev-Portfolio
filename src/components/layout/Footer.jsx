@@ -122,7 +122,7 @@ const Footer = () => {
               <p className="text-white/60 text-sm mb-6 leading-relaxed">
                 Let's connect and create something amazing together !
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="grid grid-cols-7 gap-2">
                 {Object.entries(SOCIAL_LINKS).map(([platform, url]) => {
                   const Icon = socialIcons[platform];
                   return Icon ? (
@@ -131,14 +131,14 @@ const Footer = () => {
                       href={url || "#"}
                       target={url ? "_blank" : undefined}
                       rel={url ? "noopener noreferrer" : undefined}
-                      className={`group relative p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-primary/50 hover:scale-110 transition-all duration-300 ${
+                      className={`group relative p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-primary/50 hover:scale-120 transition-all duration-300 ${
                         !url ? "cursor-not-allowed opacity-50" : ""
                       }`}
                       aria-label={`Connect on ${platform}`}
                       title={`Connect on ${platform.charAt(0).toUpperCase() + platform.slice(1)}${!url ? " (Coming Soon)" : ""}`}
                       onClick={(e) => !url && e.preventDefault()}
                     >
-                      <Icon className="w-4 h-4 text-white/60 group-hover:text-primary transition-colors duration-300" />
+                      <Icon className="w-3 h-3 text-white/60 group-hover:text-primary transition-colors duration-300" />
                       <div className="absolute inset-0 bg-linear-to-br from-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:to-primary/5 rounded-xl transition-all duration-300 pointer-events-none" />
                     </a>
                   ) : null;
