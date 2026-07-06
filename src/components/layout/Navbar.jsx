@@ -47,7 +47,7 @@ const Navbar = () => {
               className="relative group"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <div className="relative w-15 h-15 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-300 cursor-pointer">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-300 cursor-pointer">
                 <img
                   src="/images/My_Profile.jpg"
                   alt={PERSONAL_INFO.name}
@@ -57,7 +57,7 @@ const Navbar = () => {
 
               {/* Expanded profile image on hover */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                <div className="relative w-60 h-82 rounded-2xl overflow-hidden border-2 border-primary/50 shadow-2xl shadow-primary/20 bg-black">
+                <div className="relative w-60 h-80 rounded-2xl overflow-hidden border-2 border-primary/50 shadow-2xl shadow-primary/20 bg-black">
                   <img
                     src="/images/My_Profile.jpg"
                     alt={PERSONAL_INFO.name}

@@ -284,7 +284,7 @@ const Contact = () => {
                       href={url || "#"}
                       target={url ? "_blank" : undefined}
                       rel={url ? "noopener noreferrer" : undefined}
-                      className={`p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-primary/50 hover:scale-110 transition-all duration-300 group ${
+                      className={`p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-primary/50 hover:scale-120 transition-all duration-300 group ${
                         !url ? "cursor-not-allowed opacity-50" : ""
                       }`}
                       aria-label={`Connect on ${platform}`}
