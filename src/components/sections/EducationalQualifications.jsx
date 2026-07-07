@@ -27,19 +27,20 @@ import {
   Calendar,
   CloudCog,
   CodeSquare,
-  ServerIcon,
-  ServerCogIcon,
   MedalIcon,
   AwardIcon,
   CloudCogIcon,
   BookCheckIcon,
   BookCopyIcon,
+  ServerCogIcon,
+  BriefcaseBusinessIcon,
 } from "lucide-react";
 import FadeIn from "../animations/FadeIn";
 import { FaAmazon, FaJava, FaPython } from "react-icons/fa";
-import { VscAzureDevops } from "react-icons/vsc";
+import { VscAzureDevops, VscSymbolOperator } from "react-icons/vsc";
 import {
   SiBmcsoftware,
+  SiClerk,
   SiCss,
   SiEsotericsoftware,
   SiExpress,
@@ -54,6 +55,7 @@ import {
   SiMysql,
   SiNestjs,
   SiNextdotjs,
+  SiPaloaltosoftware,
   SiPostgresql,
   SiSpringboot,
   SiSqlite,
@@ -65,12 +67,19 @@ import {
   SiYaml,
 } from "react-icons/si";
 import { FaFlutter, FaReact, FaVuejs } from "react-icons/fa6";
-import { RiFirebaseFill, RiNodejsLine, RiSupabaseFill } from "react-icons/ri";
+import {
+  RiComputerFill,
+  RiFirebaseFill,
+  RiNodejsLine,
+  RiSupabaseFill,
+} from "react-icons/ri";
 import { TbBrandReactNative } from "react-icons/tb";
-import { MdDeveloperMode } from "react-icons/md";
 import { GrMysql } from "react-icons/gr";
-import { IoColorPalette, IoColorPaletteOutline } from "react-icons/io5";
+import { MdDataThresholding, MdDeveloperMode } from "react-icons/md";
 import { TiVendorMicrosoft } from "react-icons/ti";
+import { IoColorPaletteOutline } from "react-icons/io5";
+import { CgWebsite } from "react-icons/cg";
+import { BsCloudFill } from "react-icons/bs";
 
 const EducationalQualifications = () => {
   const qualifications = [
@@ -287,17 +296,47 @@ const EducationalQualifications = () => {
   ];
 
   const passions = [
-    { name: "Software Development", icon: Laptop },
+    { name: "Software Development", icon: SiPaloaltosoftware },
     { name: "Full-Stack Development", icon: Layers },
     { name: "Mobile Apps", icon: Smartphone },
     { name: "Web Development", icon: Globe },
-    { name: "Web Design", icon: Palette },
+    { name: "Web Design", icon: CgWebsite },
     { name: "UI/UX Design", icon: Palette },
-    { name: "Cloud Systems", icon: Cloud },
+    { name: "Cloud Systems", icon: BsCloudFill },
     { name: "Freelancing", icon: Rocket },
     { name: "AI Services", icon: Bot },
     { name: "Digital Creator", icon: Sparkles },
     { name: "SEO Services", icon: TrendingUp },
+  ];
+
+  const workExperience = [
+    {
+      role: "Data Processor and Data Examiner QA/QC",
+      company: "Orel IT Pvt Ltd",
+      location: "Kadawatha, Sri Lanka",
+      duration: "2+ Years",
+      icon: MdDataThresholding,
+      description:
+        "It is a data exporting company. My job role is to check and upload that data. And I have two years of experience as a Data Processor and Data Examiner.",
+    },
+    {
+      role: "Computer Operator and Data Entry (IT Staff)",
+      company: "Hemas Manufacturing Pvt Ltd",
+      location: "Welisara, Sri Lanka",
+      duration: "1 Year",
+      icon: RiComputerFill,
+      description:
+        "Typically data entry into various computer databases, managing and maintaining effective record keeping. In addition organizing files, collecting and managing data to be entered into the computer.",
+    },
+    {
+      role: "Office Clerk (Data Entry)",
+      company: "Hayley's Consumer Distributing Company, VAW Enterprises",
+      location: "Ganemulla, Sri Lanka",
+      duration: "8 Months",
+      icon: SiClerk,
+      description:
+        "Completed daily office tasks such as filing, sorting mail and data entry with accuracy and efficiency.",
+    },
   ];
 
   return (
@@ -343,17 +382,17 @@ const EducationalQualifications = () => {
                   <p className="text-white/70 leading-relaxed group-hover:text-[#A8FF8D] transition-colors duration-300">
                     Software Engineer, Full Stack & Web Developer with a First
                     Class BSc (Hons) in Computer Science (Software Engineering)
-                    from Kingston University (UK) and hands-on experience in
+                    from Kingston University (UK) and hands on experience in
                     Web, Mobile, App & Desktop application development. Skilled
                     in SpringBoot, WordPress, Portfolio, MERN, Laravel with PHP,
                     Flutter with Dart, React.js, Next.js, Nest.js, Express.js,
-                    Node.js, Vue.js, React Native, Java, Python, C, JS, SQL,
-                    Firebase, Supabase, NoSQL, PostgreSQL, MySQL, SQLite, Xampp,
-                    Wamp, SQL Server and MongoDB. Experienced in building
-                    RESTful APIs, FAST APIs, deploying cloud-based solutions
+                    Node.js, Vue.js, Vite, React Native, Java, Python, C, JS,
+                    SQL, Firebase, Supabase, NoSQL, PostgreSQL, MySQL, SQLite,
+                    Xampp, Wamp, SQL Server and MongoDB. Experienced in building
+                    RESTful APIs, FAST APIs, deploying cloud based solutions
                     (AWS, Azure, GCP, Vercel) and applying Agile/Scrum
                     methodologies. Proven ability to design scalable, secure and
-                    user-friendly software systems through freelance and
+                    user friendly software systems through freelance and
                     academic projects.
                   </p>
                 </div>
@@ -390,6 +429,55 @@ const EducationalQualifications = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Professional / Work Experience */}
+        <FadeIn delay={150}>
+          <div className="mb-16">
+            <h3 className="text-2xl font-semibold text-white mb-8 flex items-center gap-3">
+              <BriefcaseBusinessIcon className="w-6 h-6 text-primary" />
+              PROFESSIONAL / WORK EXPERIENCE
+            </h3>
+            <div className="space-y-6">
+              {workExperience.map((exp, index) => {
+                const Icon = exp.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group relative bg-gradient-to-r from-white/5 to-white/10 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 hover:scale-105"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors shrink-0">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-[#A8FF8D] transition-colors duration-300">
+                          {exp.role}
+                        </h4>
+                        <div className="space-y-2 mb-3">
+                          <div className="flex items-center gap-2 text-white/70 text-sm">
+                            <Building2 className="w-4 h-4" />
+                            <span>{exp.company}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-white/60 text-sm">
+                            <MapPin className="w-4 h-4" />
+                            <span>{exp.location}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-white/60 text-sm">
+                            <Calendar className="w-4 h-4" />
+                            <span>{exp.duration}</span>
+                          </div>
+                        </div>
+                        <p className="text-white/60 text-sm leading-relaxed border-t border-white/10 pt-3">
+                          {exp.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </FadeIn>
