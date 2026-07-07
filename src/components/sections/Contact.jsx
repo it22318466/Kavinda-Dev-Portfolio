@@ -61,6 +61,26 @@ const Contact = () => {
     setStatus({ type: "loading", message: "Sending message..." });
 
     try {
+      // Check if environment variables are set
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+      console.log("EmailJS Config Check:", {
+        hasPublicKey: !!publicKey,
+        hasServiceId: !!serviceId,
+        hasTemplateId: !!templateId,
+        publicKey: publicKey?.substring(0, 10) + "...",
+        serviceId,
+        templateId,
+      });
+
+      if (!publicKey || !serviceId || !templateId) {
+        throw new Error(
+          "EmailJS environment variables are not configured. Please check Vercel environment variables.",
+        );
+      }
+
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
@@ -68,11 +88,13 @@ const Contact = () => {
         to_email: PERSONAL_INFO.email,
       };
 
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
         templateParams,
       );
+
+      console.log("EmailJS Response:", response);
 
       setStatus({
         type: "success",
@@ -82,10 +104,29 @@ const Contact = () => {
 
       setTimeout(() => setStatus({ type: "", message: "" }), 5000);
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("EmailJS Error Details:", {
+        message: error.message,
+        status: error.status,
+        text: error.text,
+        fullError: error,
+      });
+
+      let errorMessage =
+        "Failed to send message. Please try again or email directly.";
+
+      if (error.message?.includes("environment variables")) {
+        errorMessage =
+          "Email service not configured. Please contact the administrator.";
+      } else if (error.status === 429) {
+        errorMessage = "Too many messages. Please try again later.";
+      } else if (error.status === 401 || error.status === 403) {
+        errorMessage =
+          "Email service authentication failed. Please contact the administrator.";
+      }
+
       setStatus({
         type: "error",
-        message: "Failed to send message. Please try again or email directly.",
+        message: errorMessage,
       });
     }
   };
