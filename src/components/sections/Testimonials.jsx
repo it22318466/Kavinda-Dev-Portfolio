@@ -1,24 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star, X, Send } from "lucide-react";
 import { testimonials as defaultTestimonials } from "../../data/testimonials";
 import FadeIn from "../animations/FadeIn";
+import {
+  addTestimonial,
+  deleteTestimonial,
+  subscribeToTestimonials,
+} from "../../utils/firebase";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef(null);
-
-  // Initialize testimonials from localStorage or use default
-  const getInitialTestimonials = () => {
-    const storedTestimonials = localStorage.getItem("userTestimonials");
-    if (storedTestimonials) {
-      const userTestimonials = JSON.parse(storedTestimonials);
-      // Reverse user testimonials so newest appear first
-      return [...userTestimonials.reverse(), ...defaultTestimonials];
-    }
-    return defaultTestimonials;
-  };
-
-  const [testimonials, setTestimonials] = useState(getInitialTestimonials);
+  const [testimonials, setTestimonials] = useState(defaultTestimonials);
+  const [isFirebaseConfigured, setIsFirebaseConfigured] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -32,6 +26,27 @@ const Testimonials = () => {
   });
   const [imagePreview, setImagePreview] = useState(null);
   const [formStatus, setFormStatus] = useState({ type: "", message: "" });
+
+  // Subscribe to Firebase testimonials on component mount
+  useEffect(() => {
+    const unsubscribe = subscribeToTestimonials((firebaseTestimonials) => {
+      if (firebaseTestimonials.length > 0) {
+        // Combine Firebase testimonials with default ones
+        // Firebase testimonials come first (newest)
+        const combined = [...firebaseTestimonials, ...defaultTestimonials];
+        setTestimonials(combined);
+        setIsFirebaseConfigured(true);
+      } else {
+        // No Firebase testimonials yet, use defaults
+        setTestimonials(defaultTestimonials);
+        setIsFirebaseConfigured(true);
+      }
+    });
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+    };
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -79,8 +94,17 @@ const Testimonials = () => {
     setFormData({ ...formData, rating });
   };
 
-  const handleSubmitTestimonial = (e) => {
+  const handleSubmitTestimonial = async (e) => {
     e.preventDefault();
+
+    // Check if Firebase is configured
+    if (!isFirebaseConfigured) {
+      setFormStatus({
+        type: "error",
+        message: "Firebase not configured. Please check environment variables.",
+      });
+      return;
+    }
 
     // Validation
     if (
@@ -102,76 +126,69 @@ const Testimonials = () => {
       return;
     }
 
-    // Create new testimonial
-    const newTestimonial = {
-      id: Date.now(),
-      name: formData.name,
-      role: formData.role,
-      company: formData.company,
-      image: formData.image || "/images/testimonials/default_user.png",
-      quote: formData.quote,
-      rating: formData.rating,
-      customStat:
-        formData.customStatValue && formData.customStatLabel
-          ? { value: formData.customStatValue, label: formData.customStatLabel }
-          : null,
-      isUserSubmitted: true,
-    };
+    setFormStatus({ type: "loading", message: "Submitting testimonial..." });
 
-    // Save to localStorage
-    const storedTestimonials = localStorage.getItem("userTestimonials");
-    const userTestimonials = storedTestimonials
-      ? JSON.parse(storedTestimonials)
-      : [];
-    userTestimonials.unshift(newTestimonial);
-    localStorage.setItem("userTestimonials", JSON.stringify(userTestimonials));
+    try {
+      // Create new testimonial
+      const newTestimonial = {
+        name: formData.name,
+        role: formData.role,
+        company: formData.company,
+        image: formData.image || "/images/testimonials/default_user.png",
+        quote: formData.quote,
+        rating: formData.rating,
+        customStat:
+          formData.customStatValue && formData.customStatLabel
+            ? {
+                value: formData.customStatValue,
+                label: formData.customStatLabel,
+              }
+            : null,
+        isUserSubmitted: true,
+        createdAt: Date.now(),
+      };
 
-    // Update state - add new testimonial at the beginning
-    setTestimonials([newTestimonial, ...testimonials]);
+      // Save to Firebase
+      await addTestimonial(newTestimonial);
 
-    // Reset form
-    setFormData({
-      name: "",
-      role: "",
-      company: "",
-      quote: "",
-      rating: 5,
-      image: null,
-      customStatValue: "",
-      customStatLabel: "",
-    });
-    setImagePreview(null);
-    setShowForm(false);
-    setFormStatus({
-      type: "success",
-      message: "Thank you for your testimonial!",
-    });
+      // Reset form
+      setFormData({
+        name: "",
+        role: "",
+        company: "",
+        quote: "",
+        rating: 5,
+        image: null,
+        customStatValue: "",
+        customStatLabel: "",
+      });
+      setImagePreview(null);
+      setShowForm(false);
+      setFormStatus({
+        type: "success",
+        message: "Thank you for your testimonial!",
+      });
 
-    setTimeout(() => setFormStatus({ type: "", message: "" }), 5000);
+      setTimeout(() => setFormStatus({ type: "", message: "" }), 5000);
+    } catch (error) {
+      console.error("Error submitting testimonial:", error);
+      setFormStatus({
+        type: "error",
+        message: "Failed to submit testimonial. Please try again.",
+      });
+    }
   };
 
-  const handleDeleteTestimonial = (testimonialId) => {
-    const storedTestimonials = localStorage.getItem("userTestimonials");
-    if (storedTestimonials) {
-      const userTestimonials = JSON.parse(storedTestimonials);
-      const updatedUserTestimonials = userTestimonials.filter(
-        (t) => t.id !== testimonialId,
-      );
-      localStorage.setItem(
-        "userTestimonials",
-        JSON.stringify(updatedUserTestimonials),
-      );
-
-      // Update state
-      const updatedTestimonials = testimonials.filter(
-        (t) => t.id !== testimonialId,
-      );
-      setTestimonials(updatedTestimonials);
-
-      // Adjust current index if needed
-      if (currentIndex >= updatedTestimonials.length) {
-        setCurrentIndex(Math.max(0, updatedTestimonials.length - 1));
-      }
+  const handleDeleteTestimonial = async (testimonialId) => {
+    try {
+      await deleteTestimonial(testimonialId);
+      // Firebase will automatically update the testimonials via the subscription
+    } catch (error) {
+      console.error("Error deleting testimonial:", error);
+      setFormStatus({
+        type: "error",
+        message: "Failed to delete testimonial. Please try again.",
+      });
     }
   };
 
@@ -238,7 +255,17 @@ const Testimonials = () => {
         <FadeIn delay={50}>
           <div className="text-center mb-8">
             <button
-              onClick={() => setShowForm(!showForm)}
+              onClick={() => {
+                if (!isFirebaseConfigured) {
+                  setFormStatus({
+                    type: "error",
+                    message:
+                      "Firebase not configured. Testimonial submission is disabled.",
+                  });
+                  return;
+                }
+                setShowForm(!showForm);
+              }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 border border-primary/30 rounded-full hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-105 cursor-pointer"
             >
               <Send className="w-4 h-4 text-primary" />
@@ -446,7 +473,9 @@ const Testimonials = () => {
                       className={`p-4 rounded-xl ${
                         formStatus.type === "success"
                           ? "bg-green-500/10 border border-green-500/20 text-green-400"
-                          : "bg-red-500/10 border border-red-500/20 text-red-400"
+                          : formStatus.type === "loading"
+                            ? "bg-blue-500/10 border border-blue-500/20 text-blue-400"
+                            : "bg-red-500/10 border border-red-500/20 text-red-400"
                       }`}
                     >
                       {formStatus.message}
@@ -517,9 +546,17 @@ const Testimonials = () => {
                             {/* Delete Button for User Submitted Testimonials */}
                             {testimonial.isUserSubmitted && (
                               <button
-                                onClick={() =>
-                                  handleDeleteTestimonial(testimonial.id)
-                                }
+                                onClick={() => {
+                                  if (!isFirebaseConfigured) {
+                                    setFormStatus({
+                                      type: "error",
+                                      message:
+                                        "Firebase not configured. Cannot delete testimonials.",
+                                    });
+                                    return;
+                                  }
+                                  handleDeleteTestimonial(testimonial.id);
+                                }}
                                 className="absolute top-3 right-3 p-2 bg-red-500/20 border border-red-500/50 rounded-full hover:bg-red-500/40 transition-all duration-300 cursor-pointer"
                                 title="Delete testimonial"
                               >
