@@ -5,6 +5,7 @@ This guide will help you set up Firebase Realtime Database to enable the testimo
 ## Why Firebase?
 
 The testimonials feature needs a backend database to store and share testimonials across all users. Firebase Realtime Database is:
+
 - **Free** for basic usage (generous free tier)
 - **Easy to set up** with minimal configuration
 - **Perfect for static sites** like your Vercel deployment
@@ -46,7 +47,7 @@ const firebaseConfig = {
   projectId: "YOUR_PROJECT_ID",
   storageBucket: "YOUR_PROJECT_ID.appspot.com",
   messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  appId: "YOUR_APP_ID",
 };
 ```
 
@@ -60,18 +61,11 @@ For security, you need to set up proper database rules:
 ```javascript
 {
   "rules": {
+    ".read": false,
+    ".write": false,
     "testimonials": {
       ".read": true,
-      ".write": true,
-      ".validate": "newData.hasChildren(['name', 'role', 'company', 'quote', 'rating'])",
-      "name": { ".validate": "newData.isString() && newData.val().length > 0" },
-      "role": { ".validate": "newData.isString() && newData.val().length > 0" },
-      "company": { ".validate": "newData.isString() && newData.val().length > 0" },
-      "quote": { ".validate": "newData.isString() && newData.val().length >= 20" },
-      "rating": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5" },
-      "$testimonialId": {
-        ".validate": "newData.hasChildren(['name', 'role', 'company', 'quote', 'rating'])"
-      }
+      ".write": true
     }
   }
 }
@@ -80,11 +74,12 @@ For security, you need to set up proper database rules:
 3. Click **"Publish"**
 
 These rules allow:
+
 - Anyone to read testimonials (public access)
 - Anyone to write testimonials (public submission)
-- Validation to ensure required fields are present
-- Rating must be between 1-5
-- Quote must be at least 20 characters
+- Only the testimonials path is accessible, not the entire database
+
+**Note:** For additional security, you can add validation rules. See the Firebase documentation for more advanced rule configurations.
 
 ## Step 5: Update Your .env File
 
@@ -127,19 +122,23 @@ Replace the placeholder values with your actual Firebase configuration from Step
 ## Troubleshooting
 
 ### "Firebase is not defined"
+
 - Make sure you've run `npm install firebase`
 - Restart your development server
 
 ### "Permission denied" error
+
 - Check your Firebase Realtime Database rules
 - Make sure they're published (not just saved)
 
 ### Testimonials not appearing
+
 - Check the browser console for errors
 - Verify your Firebase configuration in `.env` is correct
 - Check the Firebase Console to see if data is being saved
 
 ### "Database URL not configured"
+
 - Make sure `VITE_FIREBASE_DATABASE_URL` is set in your `.env`
 - The URL should end with `.firebaseio.com`
 
@@ -154,6 +153,7 @@ Replace the placeholder values with your actual Firebase configuration from Step
 ## Cost
 
 Firebase Realtime Database free tier includes:
+
 - 100 simultaneous connections
 - 1 GB stored data
 - 10 GB/month downloaded
@@ -164,6 +164,7 @@ This is more than sufficient for a portfolio website testimonials feature.
 ## Next Steps
 
 After completing this setup:
+
 1. The testimonials feature will work as intended
 2. Users can submit testimonials that are visible to everyone
 3. Testimonials are stored centrally in Firebase
