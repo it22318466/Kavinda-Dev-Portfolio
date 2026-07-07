@@ -5,7 +5,7 @@ export const PERSONAL_INFO = {
   location: "Gampaha, Sri Lanka",
   tagline:
     "Crafting seamless digital experiences with modern web technologies !",
-  resume: "/src/assets/Lochana Kavinda Dev_SE_DevOps_CV.pdf",
+  resume: "/public/images/Lochana-Kavinda-Dev_SE_DevOps_CV.pdf",
   bio: [
     "I'm a passionate Full Stack Developer with over 5 years of experience building scalable. Performant web & mobile applications. I specialize in creating intuitive user interfaces that combine beautiful design with exceptional functionality.",
     "My expertise spans the entire frontend ecosystem, from React, Vue.js, Java, Python, Node.js, Next.js, Express.js, Spring Boot, MERN Stack, Laravel and Flutter to NestJS, JS, TypeScript and modern CSS frameworks. I'm committed to writing clean, maintainable code and staying current with the latest web technologies.",
