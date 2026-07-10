@@ -21,10 +21,13 @@ import {
   FaTelegram,
   FaBitbucket,
   FaGitlab,
+  FaSnapchat,
 } from "react-icons/fa";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "../../utils/constants";
 import FadeIn from "../animations/FadeIn";
 import emailjs from "@emailjs/browser";
+import { FaSquareThreads } from "react-icons/fa6";
+import { SiVercel } from "react-icons/si";
 
 // Initialize EmailJS with your public key
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -152,6 +155,9 @@ const Contact = () => {
     telegram: FaTelegram,
     youtube: FaYoutube,
     phone: FaPhone,
+    threads: FaSquareThreads,
+    snapchat: FaSnapchat,
+    vercel: SiVercel,
   };
 
   return (

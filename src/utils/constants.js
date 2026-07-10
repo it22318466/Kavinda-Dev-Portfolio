@@ -20,8 +20,8 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/lochana-kavinda-a08260288",
   indeed: "https://profile.indeed.com/?hl=en_US&co=US&from=gnav-homepage",
   fiverr: "https://www.fiverr.com/lochana_k/buying?source=avatar_menu_profile",
-  phone: "+94 75 783 6574",
   pinterest: "https://pin.it/1Bvx1NL5m",
+  phone: "+94 75 783 6574",
   facebook: "https://www.facebook.com/share/1VjfTB2KeV/",
   instagram:
     "https://www.instagram.com/lochaa_kavi?utm_source=qr&igsh=ejlrcGpvdG5vMnk=",
@@ -29,13 +29,15 @@ export const SOCIAL_LINKS = {
   whatsapp: "https://wa.me/qr/G54T77M3Z3EFH1",
   tiktok: "https://www.tiktok.com/@lochaa761?_r=1&_t=ZS-97kee9WbD0f",
   threads: "https://www.threads.com/@lochaa_kavi",
+  snapchat: "",
   twitter: "",
-  dribbble: "",
-  discord: "",
-  reddit: "",
   youtube: "",
   viber: "",
   telegram: "",
+  vercel: "",
+  dribbble: "",
+  discord: "",
+  reddit: "",
 };
 
 export const STATS = [
