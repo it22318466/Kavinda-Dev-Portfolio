@@ -11,6 +11,7 @@ import {
   SiLaravel,
   SiSpring,
   SiWordpress,
+  SiVuedotjs,
 } from "react-icons/si";
 import { PERSONAL_INFO, STATS } from "../../utils/constants";
 import { scrollToSection } from "../../hooks/useScrollSpy";
@@ -99,7 +100,7 @@ const Hero = () => {
                 </div>
 
                 {/* Technology Logos */}
-                <div className="absolute bottom-6 left-6 z-20">
+                <div className="absolute bottom-6 left-4 z-20">
                   <FadeIn delay={500}>
                     <div className="flex items-center gap-4 bg-emerald-500/10 backdrop-blur-sm broder border-white/10 rounded-full px-6 py-3 hover:bg-primary/13 hover:border-primary/13 transition-all duration-300">
                       <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
@@ -132,6 +133,10 @@ const Hero = () => {
 
                       <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
                         <SiSass className="w-full h-full text-primary" />
+                      </div>
+
+                      <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
+                        <SiVuedotjs className="w-full h-full text-primary" />
                       </div>
 
                       <div className="w-6 h-6 flex items-center justify-center hover:scale-120 transition-transform duration-300">
