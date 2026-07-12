@@ -26,19 +26,18 @@ const Testimonials = () => {
   });
   const [imagePreview, setImagePreview] = useState(null);
   const [formStatus, setFormStatus] = useState({ type: "", message: "" });
+  const [currentUserId, setCurrentUserId] = useState("");
 
   // Get or create a unique user ID for this browser
-  const getUserId = () => {
+  useEffect(() => {
     let userId = localStorage.getItem("testimonial_user_id");
     if (!userId) {
       userId =
         "user_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
       localStorage.setItem("testimonial_user_id", userId);
     }
-    return userId;
-  };
-
-  const currentUserId = getUserId();
+    setCurrentUserId(userId);
+  }, []);
 
   // Subscribe to Firebase testimonials on component mount
   useEffect(() => {
@@ -56,6 +55,17 @@ const Testimonials = () => {
         ];
         setTestimonials(combined);
         setIsFirebaseConfigured(true);
+        // Reset to first position to show newest testimonial
+        setCurrentIndex(0);
+        // Scroll to first position
+        setTimeout(() => {
+          if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollTo({
+              left: 0,
+              behavior: "smooth",
+            });
+          }
+        }, 100);
       } else {
         // No Firebase testimonials yet, use defaults
         setTestimonials(defaultTestimonials);
@@ -189,6 +199,18 @@ const Testimonials = () => {
         type: "success",
         message: "Thank you for your testimonial!",
       });
+
+      // Reset carousel to show the newest testimonial
+      setCurrentIndex(0);
+      // Scroll to first position
+      setTimeout(() => {
+        if (scrollContainerRef.current) {
+          scrollContainerRef.current.scrollTo({
+            left: 0,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
 
       setTimeout(() => setFormStatus({ type: "", message: "" }), 5000);
     } catch (error) {
