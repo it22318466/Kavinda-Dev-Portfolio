@@ -1,4 +1,4 @@
-# Kavinda DevSE Portfolio
+# Kavinda Dev Portfolio
 
 A modern, responsive developer portfolio website built with React, Vite, and Tailwind CSS. Showcase your professional skills, projects, and achievements in an elegant and interactive way.
 
